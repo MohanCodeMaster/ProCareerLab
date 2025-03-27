@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sign Up | LinkedIn Optimization Workshops</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --linkedin-blue: #0077b5;
+            --linkedin-light-blue: #0a66c2;
+            --linkedin-dark-blue: #004182;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f3f2ef;
+            position: relative;
+            min-height: 100vh;
+        }
+        
+        .background-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%230077b5' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.8;
+            z-index: -1;
+        }
+        
+        .signup-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .card {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border: none;
+            overflow: hidden;
+        }
+        
+        .card-header {
+            background: var(--linkedin-blue);
+            color: white;
+            text-align: center;
+            padding: 25px 15px;
+            border-bottom: none;
+        }
+        
+        .card-header h4 {
+            margin-bottom: 0;
+            font-weight: 700;
+        }
+        
+        .card-header p {
+            margin-top: 8px;
+            opacity: 0.9;
+            font-size: 14px;
+        }
+        
+        .card-body {
+            padding: 30px;
+        }
+        
+        .form-floating {
+            margin-bottom: 20px;
+        }
+        
+        .form-floating .form-control {
+            padding-left: 40px;
+            height: calc(3.5rem + 2px);
+            border: 1px solid #ced4da;
+        }
+        
+        .form-floating label {
+            padding-left: 40px;
+        }
+        
+        .input-group-text {
+            position: absolute;
+            z-index: 5;
+            height: 100%;
+            background: transparent;
+            border: none;
+            color: var(--linkedin-blue);
+            padding-left: 15px;
+        }
+        
+        .btn-linkedin {
+            background-color: var(--linkedin-blue);
+            color: white;
+            border: none;
+            padding: 12px;
+            font-weight: 600;
+            border-radius: 30px;
+            width: 100%;
+            transition: background 0.3s;
+        }
+        
+        .btn-linkedin:hover {
+            background-color: var(--linkedin-dark-blue);
+            color: white;
+        }
+        
+        .login-link {
+            text-align: center;
+            margin-top: 25px;
+        }
+        
+        .login-link a {
+            color: var(--linkedin-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+        
+        .alert {
+            margin-bottom: 20px;
+            display: none;
+        }
+        
+        .logo-container {
+            margin-bottom: 5px;
+        }
+        
+        .logo-container i {
+            font-size: 24px;
+            margin-right: 10px;
+        }
+        
+        .password-requirements {
+            margin-top: -15px;
+            margin-bottom: 20px;
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .workshop-badge {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+        
+        .workshop-features {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .workshop-features h6 {
+            color: var(--linkedin-blue);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .workshop-features ul {
+            margin-bottom: 0;
+            padding-left: 25px;
+        }
+        
+        .workshop-features li {
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-pattern"></div>
+    
+    <div class="signup-container">
+        <div class="card">
+            <div class="card-header">
+                <div class="logo-container">
+                    <i class="fab fa-linkedin"></i>
+                    <span>LinkedInPro</span>
+                </div>
+                <h4>Join Our Pro Career Lab Workshops</h4>
+                <p>Create an account to get started</p>
+                <div class="workshop-badge">
+                    <i class="fas fa-star"></i> Exclusive Access
+                </div>
+            </div>
+            
+            <div class="card-body">
+                <div id="alert-message" class="alert" role="alert"></div>
+                
+                <div class="workshop-features">
+                    <h6><i class="fas fa-check-circle"></i> Workshop Benefits</h6>
+                    <ul>
+                        <li>Professional profile optimization</li>
+                        <li>Network growth strategies</li>
+                        <li>Content creation mastery</li>
+                        <li>Lead generation techniques</li>
+                    </ul>
+                </div>
+                
+                <form>
+                    <div class="form-floating mb-3 position-relative">
+                        <span class="input-group-text">
+                            <i class="fas fa-envelope"></i>
+                        </span>
+                        <input type="email" class="form-control" id="signup-email" placeholder="Email address">
+                        <label for="signup-email">Email address</label>
+                    </div>
+                    
+                    <div class="form-floating mb-3 position-relative">
+                        <span class="input-group-text">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                        <input type="password" class="form-control" id="signup-password" placeholder="Password">
+                        <label for="signup-password">Password</label>
+                    </div>
+                    
+                    <div class="password-requirements">
+                        <i class="fas fa-info-circle"></i> Password must be at least 6 characters long
+                    </div>
+                    
+                    <div class="form-floating mb-4 position-relative">
+                        <span class="input-group-text">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                        <input type="password" class="form-control" id="confirm-password" placeholder="Confirm Password">
+                        <label for="confirm-password">Confirm Password</label>
+                    </div>
+                    
+                    <button type="button" class="btn btn-linkedin" onclick="signup()">
+                        Register for Workshops
+                    </button>
+                    
+                    <div class="login-link">
+                        <p>Already have an account? <a href="login.html">Sign up</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Bootstrap JS with Popper -->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js" 
+    integrity="sha256-XuHLZV/2GcNdhDbGdx5zXGzlgz9zvKpmBfAbp7fAfXY=" 
+    crossorigin="anonymous"></script>
+
+    
+    <script type="module">
+        // Import Firebase SDKs
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-analytics.js";
+        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
+        require('dotenv').config();
+
+        // Firebase Configuration
+        const firebaseConfig = {
+         apiKey: process.env.API_KEY,
+          authDomain: process.env.AUTH_DOMAIN,
+          projectId: process.env.PROJECT_ID,
+          storageBucket: process.env.STORAGE_BUCKET,
+          messagingSenderId: process.env.MESSAGING_SENDER_ID,
+          appId: process.env.APP_ID,
+          measurementId: process.env.MEASUREMENT_ID
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const auth = getAuth(app);
+        
+        // Show alert message
+        function showAlert(message, type) {
+            const alertBox = document.getElementById("alert-message");
+            alertBox.innerHTML = message;
+            alertBox.className = `alert alert-${type}`;
+            alertBox.style.display = "block";
+            
+            // Auto-hide after 5 seconds
+            setTimeout(() => {
+                alertBox.style.display = "none";
+            }, 5000);
+        }
+      
+        // Signup function
+        window.signup = function () {
+          const email = document.getElementById("signup-email").value;
+          const password = document.getElementById("signup-password").value;
+          const confirmPassword = document.getElementById("confirm-password").value;
+          
+          if (!email || !password) {
+            showAlert('<i class="fas fa-exclamation-circle"></i> Please enter both email and password', "danger");
+            return;
+          }
+          
+          if (password !== confirmPassword) {
+            showAlert('<i class="fas fa-exclamation-circle"></i> Passwords do not match', "danger");
+            return;
+          }
+          
+          if (password.length < 6) {
+            showAlert('<i class="fas fa-exclamation-circle"></i> Password should be at least 6 characters long', "danger");
+            return;
+          }
+      
+          createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+              showAlert('<i class="fas fa-check-circle"></i> Registration successful! You now have access to our workshops.', "success");
+              console.log("User signed up:", userCredential.user);
+              setTimeout(() => {
+                window.location.href = "index.html";
+              }, 2000);
+            })
+            .catch((error) => {
+  showAlert('<i class="fas fa-exclamation-circle"></i> Enter valid email or password', "danger");
+  console.error("Signup Error:", error);
+});
+        };
+    </script>
+</body>
+</html>

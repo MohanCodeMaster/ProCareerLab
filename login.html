@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login | LinkedIn Optimization Workshops</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --linkedin-blue: #0077b5;
+            --linkedin-light-blue: #0a66c2;
+            --linkedin-dark-blue: #004182;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f3f2ef;
+            position: relative;
+            min-height: 100vh;
+        }
+        
+        .background-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%230077b5' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.8;
+            z-index: -1;
+        }
+        
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .card {
+            width: 100%;
+            max-width: 450px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border: none;
+            overflow: hidden;
+        }
+        
+        .card-header {
+            background: var(--linkedin-blue);
+            color: white;
+            text-align: center;
+            padding: 25px 15px;
+            border-bottom: none;
+        }
+        
+        .card-header h4 {
+            margin-bottom: 0;
+            font-weight: 700;
+        }
+        
+        .card-header p {
+            margin-top: 8px;
+            opacity: 0.9;
+            font-size: 14px;
+        }
+        
+        .card-body {
+            padding: 30px;
+        }
+        
+        .form-floating {
+            margin-bottom: 20px;
+        }
+        
+        .form-floating .form-control {
+            padding-left: 40px;
+            height: calc(3.5rem + 2px);
+            border: 1px solid #ced4da;
+        }
+        
+        .form-floating label {
+            padding-left: 40px;
+        }
+        
+        .input-group-text {
+            position: absolute;
+            z-index: 5;
+            height: 100%;
+            background: transparent;
+            border: none;
+            color: var(--linkedin-blue);
+            padding-left: 15px;
+        }
+        
+        .btn-linkedin {
+            background-color: var(--linkedin-blue);
+            color: white;
+            border: none;
+            padding: 12px;
+            font-weight: 600;
+            border-radius: 30px;
+            width: 100%;
+            transition: background 0.3s;
+        }
+        
+        .btn-linkedin:hover {
+            background-color: var(--linkedin-dark-blue);
+            color: white;
+        }
+        
+        .signup-link {
+            text-align: center;
+            margin-top: 25px;
+        }
+        
+        .signup-link a {
+            color: var(--linkedin-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .signup-link a:hover {
+            text-decoration: underline;
+        }
+        
+        .alert {
+            margin-bottom: 20px;
+            display: none;
+        }
+        
+        .logo-container {
+            margin-bottom: 5px;
+        }
+        
+        .logo-container i {
+            font-size: 24px;
+            margin-right: 10px;
+        }
+        
+        .workshop-badge {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-pattern"></div>
+    
+    <div class="login-container">
+        <div class="card">
+            <div class="card-header">
+                <div class="logo-container">
+                    <i class="fab fa-linkedin"></i>
+                    <span>LinkedInPro</span>
+                </div>
+                <h4>Welcome to Pro Career Lab</h4>
+                <p>Sign in to access exclusive workshops</p>
+                <div class="workshop-badge">
+                    <i class="fas fa-award"></i> Premium Workshops
+                </div>
+            </div>
+            
+            <div class="card-body">
+                <div id="alert-message" class="alert" role="alert"></div>
+                
+                <form>
+                    <div class="form-floating mb-3 position-relative">
+                        <span class="input-group-text">
+                            <i class="fas fa-envelope"></i>
+                        </span>
+                        <input type="email" class="form-control" id="login-email" placeholder="Email address">
+                        <label for="login-email">Email address</label>
+                    </div>
+                    
+                    <div class="form-floating mb-4 position-relative">
+                        <span class="input-group-text">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                        <input type="password" class="form-control" id="login-password" placeholder="Password">
+                        <label for="login-password">Password</label>
+                    </div>
+                    
+                    <button type="button" class="btn btn-linkedin" onclick="login()">
+                        Sign In
+                    </button>
+                    
+                    <div class="signup-link">
+                        <p>Don't have an account? <a href="index.html">Sign in</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Bootstrap JS with Popper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    
+    <script type="module">
+        // Import Firebase SDKs
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-analytics.js";
+        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
+        require('dotenv').config();
+        // Firebase Configuration
+        const firebaseConfig = {
+          apiKey: process.env.API_KEY,
+          authDomain: process.env.AUTH_DOMAIN,
+          projectId: process.env.PROJECT_ID,
+          storageBucket: process.env.STORAGE_BUCKET,
+          messagingSenderId: process.env.MESSAGING_SENDER_ID,
+          appId: process.env.APP_ID,
+          measurementId: process.env.MEASUREMENT_ID
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const auth = getAuth(app);
+        
+        // Show alert message
+        function showAlert(message, type) {
+            const alertBox = document.getElementById("alert-message");
+            alertBox.innerHTML = message;
+            alertBox.className = `alert alert-${type}`;
+            alertBox.style.display = "block";
+            
+            // Auto-hide after 5 seconds
+            setTimeout(() => {
+                alertBox.style.display = "none";
+            }, 5000);
+        }
+      
+        // Login function
+        window.login = function () {
+          const email = document.getElementById("login-email").value;
+          const password = document.getElementById("login-password").value;
+          
+          if (!email || !password) {
+            showAlert("Please enter both email and password", "danger");
+            return;
+          }
+      
+          signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+              showAlert('<i class="fas fa-check-circle"></i> Login Successful! Redirecting to workshops...', "success");
+              console.log("User logged in:", userCredential.user);
+              setTimeout(() => {
+                window.location.href = "https://www.w3schools.com/bootstrap/bootstrap_forms.asp";
+              }, 1500);
+            })
+            .catch((error) => {
+  showAlert('<i class="fas fa-exclamation-circle"></i> Enter valid email or password', "danger");
+  console.error("Login Error:", error);
+});
+        };
+    </script>
+</body>
+</html>
