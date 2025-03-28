@@ -209,63 +209,62 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     
     <script type="module">
-        // Import Firebase SDKs
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-analytics.js";
         import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
-        require('dotenv').config();
-        // Firebase Configuration
-        const firebaseConfig = {
-          apiKey: process.env.API_KEY,
-          authDomain: process.env.AUTH_DOMAIN,
-          projectId: process.env.PROJECT_ID,
-          storageBucket: process.env.STORAGE_BUCKET,
-          messagingSenderId: process.env.MESSAGING_SENDER_ID,
-          appId: process.env.APP_ID,
-          measurementId: process.env.MEASUREMENT_ID
-        };
-
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-        const auth = getAuth(app);
-        
-        // Show alert message
+    
+        async function loadFirebaseConfig() {
+            try {
+                const response = await fetch("config.json"); 
+                const firebaseConfig = await response.json();
+    
+                // Initialize Firebase
+                const app = initializeApp(firebaseConfig);
+                const analytics = getAnalytics(app);
+                const auth = getAuth(app);
+    
+                // Attach login function to window object
+                window.login = function () {
+                    const email = document.getElementById("login-email").value;
+                    const password = document.getElementById("login-password").value;
+    
+                    if (!email || !password) {
+                        showAlert("Please enter both email and password", "danger");
+                        return;
+                    }
+    
+                    signInWithEmailAndPassword(auth, email, password)
+                        .then((userCredential) => {
+                            showAlert('<i class="fas fa-check-circle"></i> Login Successful! Redirecting...', "success");
+                            console.log("User logged in:", userCredential.user);
+                            setTimeout(() => {
+                                window.location.href = "dashboard.html";
+                            }, 1500);
+                        })
+                        .catch((error) => {
+                            showAlert('<i class="fas fa-exclamation-circle"></i> Invalid email or password', "danger");
+                            console.error("Login Error:", error);
+                        });
+                };
+            } catch (error) {
+                console.error("Error loading Firebase config:", error);
+                showAlert("Failed to load Firebase configuration.", "danger");
+            }
+        }
+    
         function showAlert(message, type) {
             const alertBox = document.getElementById("alert-message");
             alertBox.innerHTML = message;
             alertBox.className = `alert alert-${type}`;
             alertBox.style.display = "block";
-            
-            // Auto-hide after 5 seconds
+    
             setTimeout(() => {
                 alertBox.style.display = "none";
             }, 5000);
         }
-      
-        // Login function
-        window.login = function () {
-          const email = document.getElementById("login-email").value;
-          const password = document.getElementById("login-password").value;
-          
-          if (!email || !password) {
-            showAlert("Please enter both email and password", "danger");
-            return;
-          }
-      
-          signInWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-              showAlert('<i class="fas fa-check-circle"></i> Login Successful! Redirecting to workshops...', "success");
-              console.log("User logged in:", userCredential.user);
-              setTimeout(() => {
-                window.location.href = "https://www.w3schools.com/bootstrap/bootstrap_forms.asp";
-              }, 1500);
-            })
-            .catch((error) => {
-  showAlert('<i class="fas fa-exclamation-circle"></i> Enter valid email or password', "danger");
-  console.error("Login Error:", error);
-});
-        };
+    
+        loadFirebaseConfig(); // Call function to load Firebase config
     </script>
+    
 </body>
 </html>
