@@ -281,7 +281,6 @@
                 const analytics = getAnalytics(app);
                 const auth = getAuth(app);
     
-                console.log("Firebase initialized successfully");
     
                 return auth; // Return auth instance for use in signup
             } catch (error) {
@@ -321,8 +320,8 @@
     
                 console.log("User signed up:", userCredential.user);
                 setTimeout(() => {
-                    window.location.href = "index.html";
-                }, 2000);
+                    window.location.href = "login.html";
+                }, 1000);
     
             } catch (error) {
                 console.error("Signup Error:", error);

@@ -238,8 +238,8 @@
                             showAlert('<i class="fas fa-check-circle"></i> Login Successful! Redirecting...', "success");
                             console.log("User logged in:", userCredential.user);
                             setTimeout(() => {
-                                window.location.href = "dashboard.html";
-                            }, 1500);
+                                window.location.href = "home.html";
+                            }, 1000);
                         })
                         .catch((error) => {
                             showAlert('<i class="fas fa-exclamation-circle"></i> Invalid email or password', "danger");
