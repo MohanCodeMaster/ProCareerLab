@@ -31,13 +31,13 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero-section">
+    <section  class="hero-section">
         <div class="container">
             <div class="row align-items-center min-vh-100">
                 <div class="col-lg-6">
                     <h1 class="display-4 fw-bold mb-4">Shape Your Future Career With <br>ProCareerLab</h1>
                     <p class="lead mb-4">Expert career counseling, job placement assistance, and cutting-edge skill training to accelerate your professional growth.</p>
-                    <button class="btn btn-primary btn-lg" >
+                    <button class="btn btn-primary btn-lg"  data-bs-toggle="modal" data-bs-target="#bookingModal" >
                         Register Now for ₹99/-
                     </button>
                 </div>
@@ -47,54 +47,129 @@
             </div>
         </div>
     </section>
-
+<!-- Career Success Section - Between Hero and Workshops -->
+<section id="home" class="py-5 bg-light">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <img src="https://images.unsplash.com/photo-1542626991-cbc4e32524cc" alt="Resume Success" class="img-fluid rounded-3 shadow">
+            </div>
+            <div class="col-lg-6">
+                <h2 class="fw-bold mb-4">Land Your Dream Job With Our Expert Guidance</h2>
+                <p class="lead mb-4">Our specialized workshops are designed to transform your career prospects through proven strategies for resume building and job interview success.</p>
+                
+                <div class="d-flex mb-3">
+                    <div class="me-3">
+                        <i class="bi bi-file-earmark-text text-primary fs-3"></i>
+                    </div>
+                    <div>
+                        <h5 class="fw-bold">Professional Resume Building</h5>
+                        <p>Learn how to craft ATS-friendly resumes that highlight your strengths and get past automated screening systems. Our experts review your resume and provide personalized feedback.</p>
+                    </div>
+                </div>
+                
+                <div class="d-flex mb-3">
+                    <div class="me-3">
+                        <i class="bi bi-people text-primary fs-3"></i>
+                    </div>
+                    <div>
+                        <h5 class="fw-bold">Interview Mastery Program</h5>
+                        <p>Master the art of interviewing with mock sessions, feedback, and proven techniques to answer even the toughest questions confidently.</p>
+                    </div>
+                </div>
+                
+                <div class="d-flex mb-4">
+                    <div class="me-3">
+                        <i class="bi bi-briefcase text-primary fs-3"></i>
+                    </div>
+                    <div>
+                        <h5 class="fw-bold">Job Search Strategies</h5>
+                        <p>Discover hidden job markets, leverage networking effectively, and position yourself as the ideal candidate for your target roles.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</section>
     <!-- Workshops Section -->
-    <section id="workshops" class="py-5">
-        <div class="container">
-            <h2 class="text-center mb-5">Our Workshops</h2>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h5 class="card-title">AI Tools Mastery</h5>
-                            <p class="card-text">Master the latest AI tools and technologies to stay ahead in your career.</p>
-                            <ul class="list-unstyled">
-                                <li>✓ Hands-on Practice</li>
-                                <li>✓ Industry Projects</li>
-                                <li>✓ E-Certificate</li>
-                            </ul>
-                        </div>
+<section id="workshops" class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">Our Workshops</h2>
+        <!-- First row - three cards -->
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="bi bi-linkedin text-primary"></i> Linked In Mastery</h5>
+                        <p class="card-text">Master the latest AI tools and technologies to stay ahead in your career.</p>
+                        <ul class="list-unstyled">
+                            <li>✓ Profile Optimization</li>
+                            <li>✓ Building positive Connection</li>
+                            <li>✓ visibility</li>
+                        </ul>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h5 class="card-title">Career Counseling</h5>
-                            <p class="card-text">Get personalized guidance from industry experts to chart your career path.</p>
-                            <ul class="list-unstyled">
-                                <li>✓ 1-on-1 Sessions</li>
-                                <li>✓ Career Planning</li>
-                                <li>✓ Industry Insights</li>
-                            </ul>
-                        </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="bi bi-gear-wide-connected text-success "></i>  AI Tools Mastery For All</h5>
+                        <p class="card-text">Get personalized guidance from industry experts to chart your career path.</p>
+                        <ul class="list-unstyled">
+                            <li>✓ levaraging AI Tools</li>
+                            <li>✓ Career growth</li>
+                            <li>✓ Harnessing AI for Productivity</li>
+                        </ul>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h5 class="card-title">Skill Development</h5>
-                            <p class="card-text">Enhance your skillset with our comprehensive training programs.</p>
-                            <ul class="list-unstyled">
-                                <li>✓ Technical Skills</li>
-                                <li>✓ Soft Skills</li>
-                                <li>✓ Leadership Training</li>
-                            </ul>
-                        </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="bi bi-mic text-danger"></i>PodCast</h5>
+                        <p class="card-text">Gain career insights and tips from our expert-led PodCasts.</p>
+                        <ul class="list-unstyled">
+                            <li>✓ Career Insights</li>
+                            <li>✓ Industry Trends</li>
+                            <li>✓ Expert Advice</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+        
+        <!-- Second row - centered cards -->
+        <div class="row g-4 mt-4 justify-content-center">
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="bi bi-file-earmark-person-fill text-info "></i> Get Interview Ready</h5>
+                        <p class="card-text">Learn how to create impactful resumes that catch recruiters' attention.</p>
+                        <ul class="list-unstyled">
+                            <li>✓ ATS-Friendly Templates</li>
+                            <li>✓ Content Optimization</li>
+                            <li>✓ Portfolio Development</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="bi bi-megaphone text-warning"></i> Mastery Public Speaking Skills</h5>
+                        <p class="card-text">Enhance your confidence and communication skills to deliver impactful speeches .</p>
+                        <ul class="list-unstyled">
+                            <li>✓ Overcoming Stage Fear</li>
+                            <li>✓ Structuring Effective Speeches</li>
+                            <li>✓ Engaging Your Audience</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
     <!-- Benefits Section -->
      <!-- Benefits Section -->
@@ -200,25 +275,17 @@
                 </div>
                 <div class="modal-body">
                     <form id="bookingForm">
-                        <div class="mb-3">
+                        <div class="mb-4">
                             <label class="form-label">Name</label>
                             <input type="text" class="form-control" required>
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-4">
                             <label class="form-label">Email</label>
                             <input type="email" class="form-control" required>
                         </div>
-                        <div class="mb-3">
-                            <label class="form-label">Workshop Date</label>
-                            <select class="form-select" id="workshopDate" required>
-                                <!-- Dates will be dynamically added here -->
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Time Slot</label>
-                            <select class="form-select" id="workshopTime" required>
-                                <!-- Time slots will be dynamically added here -->
-                            </select>
+                        <div class="mb-4">
+                            <label class="form-label">Phone Number</label>
+                            <input type="tel" class="form-control" required>
                         </div>
                         <button type="submit" class="btn btn-primary w-100">Proceed to Payment</button>
                     </form>
