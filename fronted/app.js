@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         try {
             // 1. Create Order by calling your backend
-            const response = await fetch('http://localhost:3000/create-order', {
+            const response = await fetch('https://server-ftjw.onrender.com/create-order', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 "order_id": orderData.id,          // << VERY IMPORTANT
                 "handler": async function (response) {
                     // 3. After payment, verify it
-                    const verifyResponse = await fetch('http://localhost:3000/verify-payment', {
+                    const verifyResponse = await fetch('https://server-ftjw.onrender.com/verify-payment', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
