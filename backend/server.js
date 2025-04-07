@@ -9,7 +9,13 @@ const dotenv = require('dotenv');
 
 
 dotenv.config();
-app.use(cors());
+app.use(cors({
+    credentials: true,
+    origin: process.env.CORS_ORIGIN, 
+    methods: ['GET', 'POST'],
+
+}));
+
 app.use(express.json());
 app.use(morgan("dev"));
 // Razorpay instance
@@ -52,12 +58,12 @@ app.post('/verify-payment', (req, res) => {
         res.json({ success: false });
     }
 });
-
-// Run Server
-app.listen(3000, () => {
-    console.log('Server is running on http://localhost:3000');
+app.get("/", (req, res) => {
+    res.send("Hello from Razorpay Server");
 });
-const path = require('path'); // 👈 Add this at the top
+const PORT = process.env.CORS_ORIGIN || 3000;
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+});
 
-// Serve HTML page
 
