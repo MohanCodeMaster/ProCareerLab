@@ -126,7 +126,7 @@
             <div class="col-md-4">
                 <div class="card h-100">
                     <div class="card-body">
-                        <h5 class="card-title"><i class="bi bi-mic text-danger"></i>PodCast</h5>
+                        <h5 class="card-title"><i class="bi bi-mic text-danger"></i>Podcast</h5>
                         <p class="card-text">Gain career insights and tips from our expert-led PodCasts.</p>
                         <ul class="list-unstyled">
                             <li>✓ Career Insights</li>
@@ -347,7 +347,18 @@
             </div>
         </div>
     </footer>
-    
+        <!-- Add this loader in your HTML -->
+<div id="loader" style="display:none; text-align:center;">
+    <p>Processing payment, please wait...</p>
+  </div>
+<script>
+    document.getElementById("your-form-id").addEventListener("submit", function() {
+    document.getElementById("loader").style.display = "block";
+});
+
+</script>  
+<script src="app.js" ></script>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
 </body>
 </html>
