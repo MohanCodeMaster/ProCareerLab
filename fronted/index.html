@@ -347,7 +347,15 @@
             </div>
         </div>
     </footer>
-
+<!-- Add this loader in your HTML -->
+<div id="loader" style="display:none; text-align:center;">
+    <p>Processing payment, please wait...</p>
+  </div>
+  <script>
+    document.getElementById("your-form-id").addEventListener("submit", function() {
+    document.getElementById("loader").style.display = "block";
+});
+  </script>
 <script src="app.js" ></script>
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
