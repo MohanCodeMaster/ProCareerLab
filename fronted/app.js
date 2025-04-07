@@ -67,6 +67,8 @@ document.addEventListener('DOMContentLoaded', function() {
                         alert("Payment Successful and Verified ✅");
                         // Optionally redirect to a success page
                         // window.location.href = '/success.html';
+                        sendWhatsAppMessage(); // Send WhatsApp message
+
                     } else {
                         alert("Payment verification failed ❌");
                     }
@@ -90,3 +92,37 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+
+async function sendWhatsAppMessage() {
+    const token = 'YOUR_ACCESS_TOKEN';         // WhatsApp Cloud API Token
+    const phoneNumberId = 'YOUR_PHONE_NUMBER_ID';  // Your WhatsApp phone number ID
+    const recipientNumber = `91${phone}`;     // Customer's phone number (with country code)
+  
+    const url = `https://graph.facebook.com/v19.0/${phoneNumberId}/messages`;
+  
+    const data = {
+      messaging_product: "whatsapp",
+      to: recipientNumber,
+      type: "text",
+      text: { body: "🎉 Payment successful! Thank you for your order." }
+    };
+  
+    const options = {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${token}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    };
+  
+    try {
+      const response = await fetch(url, options);
+      const result = await response.json();
+      console.log("WhatsApp API Response:", result);
+    } catch (error) {
+      console.error("Error sending WhatsApp message:", error);
+    }
+  }
+  
