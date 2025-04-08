@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 async function sendWhatsAppMessage() {
-    const token = 'YOUR_ACCESS_TOKEN';         // WhatsApp Cloud API Token
+    const token = 'EAANpZCpJqZA0kBO8HSUvDDZBCUgQ4YGoAA6jrTDrEUlyJkMQO9TaDBUb7ZBhKZCTEEz6yzvx8kAgd7FYEguZAOP5yzskvvvuo05zzXkXkTgzlr7OFHZAHYpZCZAmpRhV6sKDJOq9MZAV2OBpDnadZA4J8tQ3aT4Obm7QZAZBH9gj3HfikbgnsGkzSOtbdRucDZAgZDZD';         // WhatsApp Cloud API Token
     const phoneNumberId = 'YOUR_PHONE_NUMBER_ID';  // Your WhatsApp phone number ID
     const recipientNumber = `91${phone}`;     // Customer's phone number (with country code)
   
@@ -105,7 +105,7 @@ async function sendWhatsAppMessage() {
       messaging_product: "whatsapp",
       to: recipientNumber,
       type: "text",
-      text: { body: "🎉 Payment successful! Thank you for your order." }
+      text: { body: "🎉 Payment successful! Thank you for your order and kindly conform your date" }
     };
   
     const options = {
