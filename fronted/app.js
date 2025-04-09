@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         try {
             // 1. Create Order by calling your backend
-            const response = await fetch('https://api.procareerlab.in/create-order', {
+            const response = await fetch('https://server-ftjw.onrender.com/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 "order_id": orderData.id,          // << VERY IMPORTANT
                 "handler": async function (response) {
                     // 3. After payment, verify it
-                    const verifyResponse = await fetch('https://api.procareerlab.in/verify-payment', {
+                    const verifyResponse = await fetch('https://server-ftjw.onrender.com/', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         alert("Payment Successful and Verified ✅");
                         // Optionally redirect to a success page
                         // window.location.href = '/success.html';
-                        sendWhatsAppMessage(); // Send WhatsApp message
+                        // sendWhatsAppMessage(); // Send WhatsApp message
 
                     } else {
                         alert("Payment verification failed ❌");
@@ -94,35 +94,35 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-async function sendWhatsAppMessage() {
-    const token = 'EAANpZCpJqZA0kBO8HSUvDDZBCUgQ4YGoAA6jrTDrEUlyJkMQO9TaDBUb7ZBhKZCTEEz6yzvx8kAgd7FYEguZAOP5yzskvvvuo05zzXkXkTgzlr7OFHZAHYpZCZAmpRhV6sKDJOq9MZAV2OBpDnadZA4J8tQ3aT4Obm7QZAZBH9gj3HfikbgnsGkzSOtbdRucDZAgZDZD';         // WhatsApp Cloud API Token
-    const phoneNumberId = 'YOUR_PHONE_NUMBER_ID';  // Your WhatsApp phone number ID
-    const recipientNumber = `91${phone}`;     // Customer's phone number (with country code)
+// async function sendWhatsAppMessage() {
+//     const token = 'EAANpZCpJqZA0kBO8HSUvDDZBCUgQ4YGoAA6jrTDrEUlyJkMQO9TaDBUb7ZBhKZCTEEz6yzvx8kAgd7FYEguZAOP5yzskvvvuo05zzXkXkTgzlr7OFHZAHYpZCZAmpRhV6sKDJOq9MZAV2OBpDnadZA4J8tQ3aT4Obm7QZAZBH9gj3HfikbgnsGkzSOtbdRucDZAgZDZD';         // WhatsApp Cloud API Token
+//     const phoneNumberId = 'YOUR_PHONE_NUMBER_ID';  // Your WhatsApp phone number ID
+//     const recipientNumber = `91${phone}`;     // Customer's phone number (with country code)
   
-    const url = `https://graph.facebook.com/v19.0/${phoneNumberId}/messages`;
+//     const url = `https://graph.facebook.com/v19.0/${phoneNumberId}/messages`;
   
-    const data = {
-      messaging_product: "whatsapp",
-      to: recipientNumber,
-      type: "text",
-      text: { body: "🎉 Payment successful! Thank you for your order and kindly conform your date" }
-    };
+//     const data = {
+//       messaging_product: "whatsapp",
+//       to: recipientNumber,
+//       type: "text",
+//       text: { body: "🎉 Payment successful! Thank you for your order and kindly conform your date" }
+//     };
   
-    const options = {
-      method: "POST",
-      headers: {
-        "Authorization": `Bearer ${token}`,
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(data)
-    };
+//     const options = {
+//       method: "POST",
+//       headers: {
+//         "Authorization": `Bearer ${token}`,
+//         "Content-Type": "application/json"
+//       },
+//       body: JSON.stringify(data)
+//     };
   
-    try {
-      const response = await fetch(url, options);
-      const result = await response.json();
-      console.log("WhatsApp API Response:", result);
-    } catch (error) {
-      console.error("Error sending WhatsApp message:", error);
-    }
-  }
+//     try {
+//       const response = await fetch(url, options);
+//       const result = await response.json();
+//       console.log("WhatsApp API Response:", result);
+//     } catch (error) {
+//       console.error("Error sending WhatsApp message:", error);
+//     }
+//   }
   
