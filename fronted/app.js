@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         // Optionally redirect to a success page
                         // window.location.href = '/success.html';
                         // sendWhatsAppMessage(); // Send WhatsApp message
-
+                        window.location.href = "payemt.html"; // Redirect to payment.html
                     } else {
                         alert("Payment verification failed ❌");
                     }
