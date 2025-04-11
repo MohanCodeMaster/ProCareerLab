@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 "currency": "INR",
                 "name": "ProCareerLab",
                 "description": "Payment for workshop",
-                "image": "logo.jpg",
+                "image": "images/logo_new.jpg",
                 "order_id": orderData.id,          // << VERY IMPORTANT
                 "handler": async function (response) {
                     // 3. After payment, verify it
