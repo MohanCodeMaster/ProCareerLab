@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     "contact": phone
                 },
                 "theme": {
-                    "color": "#4caf50"
+                    "color": "#1869ec"
                 }
             };
 
