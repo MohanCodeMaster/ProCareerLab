@@ -11,7 +11,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 app.use(cors({
     credentials: true,
-    origin: process.env.CORS_ORIGIN, 
+    origin: process.env.CORS_ORIGIN || 'http://localhost:5500', // Replace with your frontend URL
     methods: ['GET', 'POST'],
 
 }));
